@@ -13,8 +13,9 @@ venv\Scripts\activate
 5. PROFIT
 
 # Установка зависимостей
+```
 pip install -r requirements.txt
-
+```
 # Старт приложения
 
 ```
