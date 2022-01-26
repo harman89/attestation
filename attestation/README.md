@@ -23,4 +23,4 @@ $env:FLASK_APP = "index"
 flask run
 ```
 "index", насколько я понял имя файла без указания расширения
-test Alinia1
+test Alinia1192y4y921
