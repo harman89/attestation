@@ -1,5 +1,6 @@
 Flask
 flask_login
+flask_sqlalchemy
 sqlalchemy
 sqlalchemy.orm
 sqlalchemy_serializer
