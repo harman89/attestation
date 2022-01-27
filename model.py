@@ -15,7 +15,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-
 class User(db.Model, UserMixin):
     __tablename__ = "user"
     id = Column(Integer(), primary_key=True)
@@ -24,11 +23,7 @@ class User(db.Model, UserMixin):
     first_name = Column(String(255), nullable=False)
     mid_name = Column(String(255))
     password_hash = Column(String(255), nullable=False)
-    name = Column(String(255), nullable=False)
-    surname = Column(String(255), nullable=False)
     email = Column(String(255), nullable=False)
-    role = Column(String(255), nullable=False, default="teacher")
-    last_login_time = Column(DateTime, default=datetime.datetime.now())
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)

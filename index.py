@@ -14,14 +14,6 @@ db.create_all()
 login_manager = LoginManager(app)
 login_manager.login_view = '/'
 
-def insert_admin():
-    if not db.session.query(User).filter(User.username == "admin").first():
-        user = User(username="admin", name="admin", surname="admin", email="admin@admin.ru", role="admin")
-        user.set_password("admin")
-        db.session.add(user)
-        db.session.commit()
-
-insert_admin()
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -394,9 +386,8 @@ def login():
     user = db.session.query(User).filter(User.username == username).first()
     if user and user.check_password(password):
         login_user(user, remember=True)
-        user.last_login_time = datetime.datetime.now()
         db.session.add(user)
         db.session.commit()
         return show_course_panel()
     else:
-        return render_template("login.html", message="Ошибка авторизации")
+        return render_template("auth.html", message="Ошибка авторизации")
