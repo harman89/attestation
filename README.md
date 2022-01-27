@@ -19,8 +19,5 @@ pip install -r requirements.txt
 # Старт приложения
 
 ```
-$env:FLASK_APP = "index"
-flask run
+./start.bat
 ```
-"index", насколько я понял имя файла без указания расширения
-test Alinia1192y4y921
