@@ -76,7 +76,7 @@ def login():
         login_user(user, remember=True)
         db.session.add(user)
         db.session.commit()
-        return render_template('sample.html')
+        return render_template('main.html')
     else:
         print("error, net usera")
         return render_template("auth.html", message="Ошибка авторизации")
