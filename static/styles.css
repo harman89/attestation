@@ -1,5 +1,13 @@
 body{
-    background-color: #6792e7;
+    background-color: #dae7ef;
+}
+/*ВЕРХНЯЯ ПАНЕЛЬ*/
+.container{
+    height: 30px;
+    padding: 1% 1% 1% 2%;
+    font: 500 25px Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    display: flex;
+    justify-content: space-between;
 }
 
 /*АВТОРИЗАЦИЯ*/
