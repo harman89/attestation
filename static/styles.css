@@ -1,11 +1,9 @@
-body {
+body{
     background-color: #6792e7;
 }
 
-
 /*АВТОРИЗАЦИЯ*/
-
-.auth-block {
+.auth-block{
     margin-left: auto;
     margin-right: auto;
     margin-top: 7%;
@@ -15,20 +13,20 @@ body {
     padding: 1%;
 }
 
-.auth-header {
+.auth-header{
     margin-top: 20px;
     text-align: center;
-    font: 500 25px Google Sans, Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    font: 500 25px Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     font-size: 25px;
 }
 
-.auth-block form {
+.auth-block form{
     width: 100%;
     margin-top: 10%;
     text-align: center;
 }
 
-.text-field_input {
+.text-field_input{
     display: block;
     width: 90%;
     height: calc(2.25rem + 2px);
@@ -45,7 +43,7 @@ body {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.btn {
+.btn{
     display: inline-block;
     box-sizing: border-box;
     padding: 0 24px;
@@ -65,5 +63,5 @@ body {
     user-select: none;
     appearance: none;
     touch-action: manipulation;
-    transition: box-shadow .18s ease-out, background .18s ease-out, color .18s ease-out;
+    transition: box-shadow .18s ease-out,background .18s ease-out,color .18s ease-out;
 }

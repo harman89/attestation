@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Auth</title>
-    <link href="styles.css" rel="stylesheet">
+    <link href="/static/styles.css" rel="stylesheet">
 </head>
-<body>
-<div class="auth-block">
-    <div class="auth-header">ВХОД</div>
-    <form id="signin" method="post" action="/auth">
-        <input class="text-field_input" type="text" id="user" name="user" placeholder="Логин"/>
-        <br>
-        <input class="text-field_input" type="password" id="pass" name="pass" placeholder="Пароль" />
-        <br>
-        <button class="btn" type="submit">Войти</button>
-    </form>
 
-</div>
+<body>
+    <div class="auth-block">
+        <div class="auth-header">ВХОД</div>
+        <form id="signin" method="post" action="/auth">
+            <input class="text-field_input" type="text" id="user" name="user" placeholder="Логин" />
+            <br>
+            <input class="text-field_input" type="password" id="pass" name="pass" placeholder="Пароль" />
+            <br>
+            <button class="btn" type="submit">Войти</button>
+        </form>
+
+    </div>
 </body>
+
 </html>
