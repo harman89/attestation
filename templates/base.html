@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Att</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="user-name">Фамилия Имя</div>
+    <form id="signout" method="post" action="/exit">
+        <button class="btn" type="submit">Выйти</button>
+    </form>
+</div>
+<hr>
+{% block content %} {% endblock %}
+</body>
+</html>

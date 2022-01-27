@@ -1,5 +1,13 @@
 body{
-    background-color: #6792e7;
+    background-color: #dae7ef;
+}
+/*ВЕРХНЯЯ ПАНЕЛЬ*/
+.container{
+    height: 30px;
+    padding: 1% 1% 1% 2%;
+    font: 500 25px Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    display: flex;
+    justify-content: space-between;
 }
 
 /*АВТОРИЗАЦИЯ*/
@@ -58,7 +66,7 @@ body{
     font-weight: normal;
     text-decoration: none;
     color: #fff;
-    background-color: #6792e7;
+    background-color: #007ae1;
     cursor: pointer;
     user-select: none;
     appearance: none;
