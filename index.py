@@ -70,7 +70,7 @@ def logout():
 @app.route('/skills_add')
 @login_required
 def add_skill():
-    
+    print("meow")
 
 
 @app.route('/auth', methods=['GET', 'POST'])

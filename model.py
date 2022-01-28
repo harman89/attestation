@@ -35,7 +35,7 @@ class User(db.Model, UserMixin):
     picture_path = Column(String(255))
     city = Column(String(255))
    #next_certification_dt = Column(DateTime)
-    user_skill = relationship('user_skill',backref='user', lazy = 'dynamic')
+    user_skill = relationship('User_Skill',backref='user', lazy = 'dynamic')
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -56,8 +56,8 @@ class Skill(db.Model):
     active_flg = Column(Boolean, nullable=False)
     link_to_lesson = Column(String(255))
     level = Column(Integer(), nullable=False) #уровень вложенности
-    user_skill = relationship('user_skill',backref='skill', lazy = 'dynamic')
-    grade_skill = relationship('grade_skill',backref='skill', lazy = 'dynamic')
+    user_skill = relationship('User_Skill',backref='skill', lazy = 'dynamic')
+    grade_skill = relationship('Grade_Skill',backref='skill', lazy = 'dynamic')
 
 class Grade(db.Model):
     __tablename__ ="grade"
@@ -68,15 +68,15 @@ class Grade(db.Model):
     
     level_id = Column(Integer(), nullable=False)#зачем это нужно?
 
-    grade_skill = relationship('grade_skill',backref='grade', lazy = 'dynamic')
+    grade_skill = relationship('Grade_Skill',backref='grade', lazy = 'dynamic')
     position_id = Column(Integer(), ForeignKey('position.id'))
 
 class Position(db.Model):
     __tablename__ ="position"
     id = Column(Integer(), primary_key=True)
     name = Column(String(255), nullable=False)
-    user_position = relationship('user',backref='position',lazy = 'dynamic')
-    grade_position = relationship('grade',backref='position', lazy = 'dynamic')
+    user_position = relationship('User',backref='position',lazy = 'dynamic')
+    grade_position = relationship('Grade',backref='position', lazy = 'dynamic')
 
 class User_Skill(db.Model):
     __tablename__ ="user_skill"
@@ -95,8 +95,8 @@ class Level(db.Model):
     letter_code = Column(String(255), nullable=False)
     description = Column(String(255), nullable=False)
     grade=relationship('grade',backref='level', lazy = 'dynamic')
-    grade_skill = relationship('grade_skill', backref='level', lazy = 'dynamic')
-    user_skill = relationship('user_skill', backref='level', lazy = 'dynamic')
+    grade_skill = relationship('Grade_Skill', backref='level', lazy = 'dynamic')
+    user_skill = relationship('User_Skill', backref='level', lazy = 'dynamic')
 
 class Grade_Skill(db.Model):
     __tablename__ ="grade_skill"
