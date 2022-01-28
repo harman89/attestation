@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,14 +8,15 @@
     <link href="/static/styles.css" rel="stylesheet">
     <script src="/static/script.js"></script>
 </head>
+
 <body>
-<div class="container">
-    <div class="user-name">Фамилия Имя</div>
-    <form id="signout" method="get" action="/exit">
-        <button class="btn" type="submit">Выйти</button>
-    </form>
-</div>
-<hr>
-{% block content %} {% endblock %}
+    <div class="container">
+        <div class="user-name">{{last_name+ ' '+first_name}}</div>
+        <form id="signout" method="get" action="/exit">
+            <button class="btn" type="submit">Выйти</button>
+        </form>
+    </div>
+    <hr> {% block content %} {% endblock %}
 </body>
+
 </html>

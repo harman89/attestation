@@ -67,6 +67,12 @@ def logout():
     return render_template('auth.html')
 
 
+@app.route('/skills_add')
+@login_required
+def add_skill():
+    print("empty")
+
+
 @app.route('/auth', methods=['GET', 'POST'])
 def login():
     login = request.form.get("user")
@@ -76,7 +82,7 @@ def login():
         login_user(user, remember=True)
         db.session.add(user)
         db.session.commit()
-        return render_template('main.html')
+        return render_template('main.html', first_name= user.first_name, last_name= user.last_name)
     else:
         print("error, net usera")
         return render_template("auth.html", message="Ошибка авторизации")
