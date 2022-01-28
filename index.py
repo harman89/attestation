@@ -67,6 +67,12 @@ def logout():
     return render_template('auth.html')
 
 
+@app.route('/skills_add')
+@login_required
+def add_skill():
+    print("empty")
+
+
 @app.route('/auth', methods=['GET', 'POST'])
 def login():
     login = request.form.get("user")
