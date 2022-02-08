@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 from os.path import dirname, join, realpath,exists
 
 import flask
-from flask import render_template, request, jsonify, flash, send_from_directory
+from flask import render_template, request, jsonify, flash, send_from_directory, Flask, abort, redirect, url_for
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 from model import db, app, User
@@ -47,10 +47,16 @@ def generate_invite_code():
 @app.route('/')
 def index(message=""):
     if current_user.is_authenticated:
-        return render_template('sample.html')
+        return redirect('/home')
     else:
         return render_template('auth.html', message=message)
 
+@app.route('/home')
+def home():
+    if current_user.is_authenticated:
+        return render_template('main.html', first_name= current_user.first_name, last_name= current_user.last_name)
+    else:
+        return redirect('/')
 
 @app.route('/registration', methods=['GET', 'POST'])
 def registration():
@@ -91,7 +97,9 @@ def login():
         login_user(user, remember=True)
         db.session.add(user)
         db.session.commit()
-        return render_template('main.html', first_name= user.first_name, last_name= user.last_name)
+        #return render_template('main.html', first_name= user.first_name, last_name= user.last_name)
+        #return redirect(url_for('home', first_name= user.first_name, last_name= user.last_name))
+        return redirect('/home')
     else:
         print("error, net usera")
         return render_template("auth.html", message="Ошибка авторизации")
