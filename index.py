@@ -25,7 +25,10 @@ def insert_admin():
         user.set_password("admin")
         db.session.add(user)
         db.session.commit()
+
+#вставка админской записи, потом убрать!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 insert_admin()
+
 @app.route("/generate_invite_code", methods=['POST'])
 @login_required
 def generate_invite_code():
