@@ -19,7 +19,13 @@ login_manager.login_view = '/'
 def load_user(user_id):
     return db.session.query(User).get(user_id)
 
-
+def insert_admin():
+    if not db.session.query(User).filter(User.login == "admin").first():
+        user = User(login="admin", first_name="admin", last_name="admin", mid_name="admin", email="admin@admin.ru",start_date=datetime.datetime.now(),admin_flg=True,can_approve_flg=True,active_flg=True)
+        user.set_password("admin")
+        db.session.add(user)
+        db.session.commit()
+insert_admin()
 @app.route("/generate_invite_code", methods=['POST'])
 @login_required
 def generate_invite_code():
@@ -70,7 +76,7 @@ def logout():
 @app.route('/skills_add')
 @login_required
 def add_skill():
-    print("empty")
+    print("meow")
 
 
 @app.route('/auth', methods=['GET', 'POST'])
