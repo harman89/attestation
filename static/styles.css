@@ -73,3 +73,22 @@ body{
     touch-action: manipulation;
     transition: box-shadow .18s ease-out,background .18s ease-out,color .18s ease-out;
 }
+
+/*Страница добавления навыка*/
+.skills-add-block form{
+    margin-top: 40px;
+}
+
+.parent-selector.hidden,
+.grid-and-goal-selector.hidden{
+    display: none;
+}
+
+.grid-selector-block{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 20px;
+}
