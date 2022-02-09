@@ -54,7 +54,7 @@ def index(message=""):
 @app.route('/home')
 def home():
     if current_user.is_authenticated:
-        return render_template('main.html', first_name= current_user.first_name, last_name= current_user.last_name)
+        return render_template('main.html', user = current_user)
     else:
         return redirect('/')
 
@@ -85,8 +85,8 @@ def logout():
 @app.route('/skills_add')
 @login_required
 def add_skill():
-    print("meow")
-
+    #print("meow")
+    return render_template('skills_add.html', user = current_user)
 
 @app.route('/auth', methods=['GET', 'POST'])
 def login():

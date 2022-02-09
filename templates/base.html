@@ -11,7 +11,10 @@
 
 <body>
     <div class="container">
-        <div class="user-name">{{last_name+ ' '+first_name}}</div>
+        <div class="user-name">{{user.last_name+ ' '+user.first_name}}</div>
+        {% if user.admin_flgL %}
+        <button class="btn" onclick="location.href = '/skills_add'">Добавить навык</button>
+        {% endif %}
         <form id="signout" method="get" action="/exit">
             <button class="btn" type="submit">Выйти</button>
         </form>
