@@ -7,8 +7,12 @@ function disclose(e){
 
 function hideParentSelector(){
     const parentSelectorDiv = document.getElementById("parent-selector");
-    const gridAndGoalSelectorDiv = document.getElementById("grid-and-goal-selector");
+    const gridAndGoalSelectorDiv = document.getElementById("grade-and-goal-selector");
     parentSelectorDiv.classList.toggle("hidden");
     gridAndGoalSelectorDiv.classList.toggle("hidden");
 }
-
+//показать/скрыть окно добавления грида
+function hideGradeAddBlock(){
+    const div = document.getElementById("grade-add-window");
+    div.classList.toggle("visible");
+}

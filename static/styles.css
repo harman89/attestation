@@ -80,15 +80,49 @@ body{
 }
 
 .parent-selector.hidden,
-.grid-and-goal-selector.hidden{
+.grade-and-goal-selector.hidden{
     display: none;
 }
 
-.grid-selector-block{
+.grade-selector-block{
     display: flex;
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     gap: 20px;
+}
+
+/*ВСПЛЫВАЮЩЕЕ ОКНО ДОБАВЛЕНИЯ ГРейда*/
+.grade-add-window{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.grade-add-window.visible{
+    display: flex;
+    background: rgba(75, 74, 74, 0.78);
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.grade-add-back{
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    background: white;
+    border-radius: 5px;
+}
+
+.grade-add-header{
+    margin: 5%;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
 }

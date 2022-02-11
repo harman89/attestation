@@ -86,7 +86,10 @@ def logout():
 @login_required
 def add_skill():
     #print("meow")
-    return render_template('skills_add.html', user = current_user)
+    if current_user.admin_flg:
+        return render_template('skills_add.html', user = current_user)
+    else:
+        return redirect('/home')
 
 @app.route('/auth', methods=['GET', 'POST'])
 def login():
