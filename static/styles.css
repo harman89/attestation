@@ -136,3 +136,6 @@ body{
     font-family: Arial, sans-serif;
 }
 
+.grade-add-back input{
+    margin: 3%;
+}

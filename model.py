@@ -84,14 +84,15 @@ class Grade(db.Model):
     name = Column(String(255), nullable=False)
     description = Column(String(255))
     #хз
-    position = Column(Integer(), nullable=False)
+    #position = Column(Integer(), nullable=False)
     #зачем это нужно?
     #level_id = Column(Integer(), nullable=False)
 
     #связь с таблицей навыков. у грейда есть навыки с минимальным уровнем владения
-    grade_skill = relationship('Grade_Skill',backref='grade', lazy = 'dynamic')
+    #grade_skill = relationship('Grade_Skill',backref='grade', lazy = 'dynamic')
     #грейд хранит ид позиции. Зачем не помню, лол
     position_id = Column(Integer(), ForeignKey('position.id'))
+    #position = relationship("Position", back_populates="grade_position")
 
 class Position(db.Model):
     __tablename__ ="position"
@@ -100,7 +101,7 @@ class Position(db.Model):
 
     #позицию используем в таблице пользователь и грейд.
     user_position = relationship('User',backref='user_position',lazy = 'dynamic')
-    grade_position = relationship('Grade',backref='grade_position', lazy = 'dynamic')
+    grades = relationship('Grade',backref="position",lazy = 'dynamic')
 
 class User_Skill(db.Model):
     __tablename__ ="user_skill"

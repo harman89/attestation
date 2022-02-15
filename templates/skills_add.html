@@ -21,10 +21,11 @@
         </div>
         <div class="grade-and-goal-selector" id="grade-and-goal-selector">
             <div class="grade-selector-block">
-                Грид
+                Грейд
                 <select name="skill-grade">
-                    <option value="id1">grade 1</option>
-                    <option value="id2">grade 2</option>
+                    {% for grade in grades %}
+                    <option value={{grade.id}} >Grade {{grade.name}}</option>
+                    {% endfor %}
                 </select>
                 <div class="grade-add-btn"><img src="/static/icons/plus.png" onclick="hideGradeAddBlock()"></div>
                 <div></div>
@@ -46,9 +47,9 @@
 <div class="grade-add-window" id="grade-add-window">
     <div class="grade-add-back">
         <div class="grade-add-header">Добавить грейд</div>
-        <form method="post" action="/">
-            <input type="number" name="n" placeholder="Название"/>
-            <input type="text" name="n" placeholder="Описание"/>
+        <form method="post" action="/grade_add">
+            <input type="number" name="name" placeholder="Название"/>
+            <input type="text" name="desk" placeholder="Описание"/>
             <button class="btn" type="submit">Добавить</button>
         </form>
         <button onclick="hideGradeAddBlock()">Закрыть</button>

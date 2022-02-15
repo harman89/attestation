@@ -8,7 +8,7 @@ import flask
 from flask import render_template, request, jsonify, flash, send_from_directory, Flask, abort, redirect, url_for
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
-from model import db, app, User
+from model import db, app, User, Grade, Position
 
 db.create_all()
 login_manager = LoginManager(app)
@@ -26,8 +26,22 @@ def insert_admin():
         db.session.add(user)
         db.session.commit()
 
+def insert_position():
+    pos = Position(name="Разрабочик Siebel")
+    db.session.add(pos)
+    db.session.commit()
+
+def insert_grade():
+    if not db.session.query(Grade).filter(Grade.name == "2").first():
+        pos = db.session.query(Position).filter(Position.id == 1).first()
+        grade = Grade(name="2",description="Второй грейд", position=pos)
+        db.session.add(grade)
+        db.session.commit()
+
 #вставка админской записи, потом убрать!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 insert_admin()
+insert_grade()
+
 
 @app.route("/generate_invite_code", methods=['POST'])
 @login_required
@@ -87,7 +101,7 @@ def logout():
 def add_skill():
     #print("meow")
     if current_user.admin_flg:
-        return render_template('skills_add.html', user = current_user)
+        return render_template('skills_add.html', user = current_user, grades = db.session.query(Grade))
     else:
         return redirect('/home')
 
@@ -106,3 +120,14 @@ def login():
     else:
         print("error, net usera")
         return render_template("auth.html", message="Ошибка авторизации")
+
+@app.route('/grade_add', methods=['GET', 'POST'])
+def gradeAdd():
+    gradeName = request.form.get("name")
+    gradeDesk = request.form.get("desk")
+    #пока что гриды добавляются только для одного Position (Siebel разработчик)
+    gradePosition = db.session.query(Position).filter(Position.id == 1).first()
+    grade = Grade(name=gradeName,description=gradeDesk, position=gradePosition)
+    db.session.add(grade)
+    db.session.commit()
+    return redirect('/skills_add')
